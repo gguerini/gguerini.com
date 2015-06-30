@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>About</title>
+  <meta name="description" content="This is my new website!
+" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="canonical" href="http://guerini.net/about/">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+<!--  <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+
+<a href="http://guerini.net" class="logo-readium"><span class="logo" style="background-image: url(/assets/images/gui-logo.png)"></span></a>
+
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">About</h1>
+            <div class="cf post-meta-text">
+              <div class="author-image" style="background-image: url()">Blog Logo</div>
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person"></h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        
+        <section class="post-content">
+          <a name="topofpage"></a>
+          <p>My name is Guillermo Guerini. I&#39;m 28 years old, born and raised in São Paulo, Brazil. I started working with IT when I was only 13 and my first project was to create the company&#39;s new website. By that time I had already taught myself HTML and CSS using Notepad.exe. After this, Javascript, server side technologies and other languages came naturally. For more than 10 years I focused on Microsoft technologies like ASP, VB6 and later on .NET, C# and ASP.NET.</p>
+
+<p>In 2008 I decided to take a break and started traveling the world. I&#39;ve been to places in the Middle East, Africa, Europe, South America and North America. It was definitely the best thing I could do for myself. In between these travels, I did a lot of freelancing and that was the second best thing. Not having guidelines and directions to be followed from a big organization, I opened my eyes to different technologies and especially to the open source community. This is when I started to learn Ruby on Rails.</p>
+
+<p>Wrapping up, I&#39;m a Software Developer with 10+ years of experience focused on web and mobile technologies.</p>
+
+<p><strong>Personal Stuff</strong></p>
+
+<p>When I&#39;m not coding, I will probably be doing one of the following things:</p>
+
+<ul>
+<li>Hanging out with my amazing girlfriend wife Leah Gregory</li>
+<li>Running</li>
+<li>Playing with our dog Pepper</li>
+<li>Traveling</li>
+<li>Eating</li>
+<li>Taking pictures and Instagraming them</li>
+<li>Reading and learning something new</li>
+</ul>
+
+        </section>
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image">
+        Image
+      </div>
+      <div class="inner">
+        <!-- <h1 class="blog-title">Guillermo Guerini</h1> -->
+        <!-- <h2 class="blog-description">This is my new website!
+</h2> -->
+        <a href="/" class="btn">Back to the beginning</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image');
+
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+
+  </body>
+</html>

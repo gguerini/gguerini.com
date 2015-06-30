@@ -13,7 +13,6 @@ $rs: 16px
 $font-serif: Linux Libertine
 $font-sans: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif
 
-
 @mixin respond-to($breakpoint)
   @media only screen and (max-width: $breakpoint + px)
     @content
@@ -24,8 +23,6 @@ $font-sans: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif
 
 main
   display: block
-
-
 
 body
   font-family: $font-sans
@@ -59,20 +56,8 @@ body
     background-repeat: no-repeat
 
 .teaserimage
-  height: 450px
-  position: relative
-  overflow: hidden
-  background-color: #000
-  .teaserimage-image
-    background-size: cover
-    background-position: center
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    z-index: 1
-    text-indent: -9999px
+  height: 90px
+  background-color: #a5d3dd
 
 .blog-header
   width: 100%
@@ -84,8 +69,8 @@ body
   @include respond-to(800)
     padding: 0 $rs
   .blog-logo
-    width: $rs*7.5
-    height: $rs*7.5
+    width: $rs*6.25
+    height: $rs*6.25
     position: absolute
     top: -$rs*3.75
     right: 50%
@@ -521,7 +506,7 @@ body
 .bottom-closer
   width: 100%
   position: relative
-  overflow: hidden
+  overflow: auto
   .background-closer-image
     position: absolute
     top: 0
@@ -529,6 +514,7 @@ body
     right: 0
     bottom: 0
     text-indent: -9999px
+    /* background-image: url(/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg) */
     background-size: cover
     background-repeat: no-repeat
     background-position: center
@@ -537,30 +523,30 @@ body
     position: relative
     z-index: 99
     max-width: 640px
-    padding: 120px 0 90px
+    padding: 60px 0 30px
     text-align: center
     margin: 0 auto
     .blog-title
       margin: 0
       padding: 0 0 10px
-      font-size: 50px
+      font-size: 30px
       text-align: center
       font-weight: 700
       letter-spacing: -2px
       outline: 0
       line-height: 50px
       word-break: break-word
-      color: #fff
-      text-shadow: 0px 1px 16px rgba(0,0,0,0.5), 0px 0px 1px rgba(0,0,0,0.5)
+      color: #000
+      /* text-shadow: 0px 1px 16px rgba(0,0,0,0.5), 0px 0px 1px rgba(0,0,0,0.5) */
     .blog-description
       margin: 0 0 50px
       padding: 0 $rs*2
       font-size: $rs/8*9
       line-height: 1.5
-      color: #fff
+      color: #000
       text-align: center
       font-weight: 400
-      text-shadow: 0px 1px 16px rgba(0,0,0,0.5), 0px 0px 1px rgba(0,0,0,0.5)
+      /* text-shadow: 0px 1px 16px rgba(0,0,0,0.5), 0px 0px 1px rgba(0,0,0,0.5) */
     .custom-links
       margin: 0 0 50px
     .btn

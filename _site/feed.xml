@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guillermo Guerini</title>
+    <description>This is my new website!
+</description>
+    <link>http://guerini.net/</link>
+    <atom:link href="http://guerini.net/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 30 Jun 2015 10:58:52 -0400</pubDate>
+    <lastBuildDate>Tue, 30 Jun 2015 10:58:52 -0400</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Another blog</title>
+        <description>&lt;p&gt;I can&amp;#39;t remember how many times I&amp;#39;ve started a blog in the past 10 years. I&amp;#39;m usually very excited in the beginning, but two or three posts later (yes, that much!), I would totally abandon it. Today, for some reason, I feel different. I have some exciting things to share and I&amp;#39;d like to start the habit of writing more. When I&amp;#39;m writing, I&amp;#39;m forced to slow down in order to organize my thoughts. My mind is always busy thinking about everything at the same time and I feel overwhelmed.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s see how it goes. Welcome!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Jun 2015 20:49:04 -0400</pubDate>
+        <link>http://guerini.net/2015/06/05/another-blog.html</link>
+        <guid isPermaLink="true">http://guerini.net/2015/06/05/another-blog.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
