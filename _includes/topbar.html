@@ -1,0 +1,12 @@
+<div class="topbar-post">
+  <a class="topbar-logo" href="{{site.url}}" style="background-image: url('{{ site.author_image }}')">{{ site.title }}</a>
+
+  <div class="topbar-navigation">
+    <a href="/">Home</a>
+    {% for page in site.pages %}
+      {% if page.title %}
+      <a href="{{page.url}}">{{page.title}}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

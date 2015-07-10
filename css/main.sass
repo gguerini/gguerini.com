@@ -63,6 +63,33 @@ body
   height: 70px
   background-color: #a5d3dd
 
+.topbar-logo
+  margin: 5px 10px
+  width: 50px
+  height: 50px
+  position: absolute
+  background-size: cover
+  border-radius: 50%
+  z-index: 99
+  text-indent: -9999px
+  border: 1px solid #fff
+  background-color: #fff
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
+
+.topbar-navigation
+  float: right
+  margin: 20px
+  a
+    margin: 0 0 0 10px
+    text-decoration: none
+    color: #fff
+    &:hover
+      color: #000
+    &:visited
+      color: #fff
+
 .blog-header
   width: 100%
   max-width: 640px
@@ -125,7 +152,7 @@ body
   @include respond-to(800)
     padding: 0 $rs*2
   article
-    padding: 40px 0
+    padding: 40px 0 10px 0
     border-bottom: 1px solid #f2f2f0
     &:last-child
       border-bottom: 0px
@@ -284,7 +311,6 @@ body
   .noarticleimage
     .post-meta
       font-family: $font-sans
-      padding-top: 60px
     .post-title
       font-weight: 700
       font-style: normal
@@ -320,6 +346,7 @@ body
     width: 100%
     font-family: $font-serif
     color: #333
+    padding-top: 20px
     h1, h2, h3
       font-family: $font-sans
     h3, h4, h5, h6
