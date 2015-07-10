@@ -18,6 +18,7 @@ paginate:	5
 
 url: "http://guerini.net"
 baseurl: ""
+google_analytics: "UA-1545602-5"
 
 # social icons and sharing options
 social:
