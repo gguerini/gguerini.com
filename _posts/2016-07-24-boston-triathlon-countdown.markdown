@@ -4,7 +4,7 @@ title: "Boston Triathlon Countdown"
 date: 2016-07-24T18:20:01-04:00
 ---
 
-![](/assets/articles/2016-07-24-boston-triathlon/boston-triathlon-logo.png)
+![](/assets/articles/2016-07-24-boston-triathlon/boston-triathlon-logo.png){: .center-image }
 
 In less than 7 days, I'll do my first Olympic distance Triathlon. I can feel the excitement building up and I know it's only going to get "worse" from now on. This will be my second triathlon. In 2014 I wanted to do something challenging to celebrate my 30th birthday and I signed up for a Sprint distance (0.25mi/400m swim, 10mi/16km bike, 3.1mi/5km run). It was a great experience and I knew I would do more triathlon events in the future. 
 
