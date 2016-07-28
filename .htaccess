@@ -1,3 +1,7 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://gguerini.com/$1 [R,L]
+
 Options +MultiViews
 
 RedirectMatch 301 /en/resume(.*) /resume$1
