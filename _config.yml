@@ -11,6 +11,8 @@ author_image: "/assets/images/author.jpg"
 
 paginate:	5
 
+permalink: /:year/:month/:title
+
 url: "https://gguerini.com"
 baseurl: ""
 google_analytics: "UA-1545602-5"
