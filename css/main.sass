@@ -1,65 +1,151 @@
 ---
 ---
 
-@import 'syntax-highlighting'
-@import 'bourbon/bourbon'
-
 $rs: 16px
-$site-width: 1070px
-$bar-color: #a5d3dd
 
-$font-sans: Open Sans, "Helvetica Neue", Arial, Helvetica, sans-serif
-
-@mixin respond-to($breakpoint)
-  @media only screen and (max-width: $breakpoint + px)
-    @content
-
-// Only needed for syntax highlighting
+// Used by syntax highlighting partial
 %vertical-rhythm
   margin-bottom: $rs
 
+@import 'syntax-highlighting'
+
+// -----------------------------------------------
+// CSS Custom Properties — Light mode defaults
+// -----------------------------------------------
+
+:root
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+  --font-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace
+
+  --color-bg: #ffffff
+  --color-bg-surface: #f8f9fa
+  --color-text: #1a1a1a
+  --color-text-secondary: #4a4a47
+  --color-text-muted: #9a9a99
+  --color-accent: #4a9e5c
+  --color-accent-hover: #3d8a4f
+  --color-topbar-bg: #1e3a4a
+  --color-topbar-text: rgba(255, 255, 255, 0.85)
+  --color-topbar-text-hover: #ffffff
+  --color-border: #e9ecef
+  --color-border-light: #f0f0ee
+  --color-code-bg: #f6f8fa
+  --color-code-border: #dee2e6
+  --color-link: #1a1a1a
+  --color-nav-link: #8a8a88
+  --color-blockquote-border: #4a9e5c
+  --color-table-border: #e8e8e8
+  --color-table-cell: #555553
+  --color-table-header-bg: #f8f9fa
+  --color-share: #c8c8c6
+  --color-shadow: rgba(0, 0, 0, 0.12)
+
+// -----------------------------------------------
+// Dark mode overrides
+// -----------------------------------------------
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-bg: #111827
+    --color-bg-surface: #1f2937
+    --color-text: #f0eeeb
+    --color-text-secondary: #b0aeac
+    --color-text-muted: #6b7280
+    --color-accent: #5bca72
+    --color-accent-hover: #4db562
+    --color-topbar-bg: #0d1b2a
+    --color-topbar-text: rgba(255, 255, 255, 0.75)
+    --color-topbar-text-hover: #ffffff
+    --color-border: #374151
+    --color-border-light: #1f2937
+    --color-code-bg: #1f2937
+    --color-code-border: #374151
+    --color-link: #f0eeeb
+    --color-nav-link: #9ca3af
+    --color-blockquote-border: #5bca72
+    --color-table-border: #374151
+    --color-table-cell: #9ca3af
+    --color-table-header-bg: #1f2937
+    --color-share: #6b7280
+    --color-shadow: rgba(0, 0, 0, 0.4)
+
+// -----------------------------------------------
+// Reset & base
+// -----------------------------------------------
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+html
+  line-height: 1.15
+  -webkit-text-size-adjust: 100%
+
 body
-  font-family: $font-sans
+  font-family: var(--font-sans)
+  background-color: var(--color-bg)
+  color: var(--color-text)
   margin: 0
   padding: 0
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-.topbar
-  height: 90px
-  background-color: $bar-color
-  width: 100%
+img
+  max-width: 100%
+
+// -----------------------------------------------
+// Topbar — post pages
+// -----------------------------------------------
 
 .topbar-post
-  height: 70px
-  background-color: $bar-color
+  height: 60px
+  background-color: var(--color-topbar-bg)
+  display: flex
+  align-items: center
+  width: 100%
 
 .topbar-logo
-  margin: 5px 10px
-  width: 50px
-  height: 50px
-  position: absolute
+  margin: 0 12px
+  width: 40px
+  height: 40px
+  flex-shrink: 0
   background-size: cover
   border-radius: 50%
-  z-index: 99
   text-indent: -9999px
-  border: 1px solid #fff
-  background-color: #fff
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)
+  border: 2px solid rgba(255, 255, 255, 0.25)
+  background-color: rgba(255, 255, 255, 0.1)
+  box-shadow: 0 1px 3px var(--color-shadow)
+  display: block
 
 .topbar-navigation
-  float: right
-  margin: 20px
+  display: flex
+  align-items: center
+  gap: 4px
+  margin-left: auto
+  padding-right: 16px
   a
-    margin: 0 0 0 10px
     text-decoration: none
-    color: #fff
+    color: var(--color-topbar-text)
+    font-size: 14px
+    font-weight: 500
+    padding: 6px 10px
+    border-radius: 6px
+    transition: background-color 0.15s ease, color 0.15s ease
     &:hover
-      color: #000
+      color: var(--color-topbar-text-hover)
+      background-color: rgba(255, 255, 255, 0.1)
     &:visited
-      color: #fff
+      color: var(--color-topbar-text)
+
+// -----------------------------------------------
+// Blog header — homepage
+// -----------------------------------------------
+
+.topbar
+  height: 80px
+  background-color: var(--color-topbar-bg)
+  width: 100%
 
 .blog-header
   width: 100%
@@ -68,136 +154,155 @@ body
   margin: 0 auto
   position: relative
   padding: 0
-  @include box-sizing(border-box)
-  @include respond-to(800)
+  @media only screen and (max-width: 800px)
     padding: 0 $rs
 
   .blog-logo
-    width: $rs*6.25
-    height: $rs*6.25
+    width: 100px
+    height: 100px
     position: absolute
-    top: -$rs*3.75
+    top: -50px
     right: 50%
-    margin-right: -$rs*3.75
+    margin-right: -50px
     background-size: cover
     border-radius: 50%
     z-index: 99
     text-indent: -9999px
-    border: 3px solid #fff
-    background-color: #fff
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3)
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3)
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3)
+    border: 3px solid var(--color-bg)
+    background-color: var(--color-bg)
+    box-shadow: 0 2px 8px var(--color-shadow)
 
   h1
     margin: 0
-    padding: $rs*5 $rs $rs/2
-    font-size: 50px
+    padding: 72px $rs ($rs / 2)
+    font-size: 48px
     font-weight: 700
-    letter-spacing: -2px
+    letter-spacing: -1.5px
     outline: 0
-    line-height: 50px
+    line-height: 1.1
     word-break: break-word
-    color: #333
-    @include respond-to(800)
-      font-size: 40px
-      padding: $rs*3.25 $rs $rs/2
+    color: var(--color-text)
+    @media only screen and (max-width: 800px)
+      font-size: 36px
+      padding-top: 60px
 
   h2
     margin: 0 0 20px
-    padding: 0 $rs*2
-    font-size: $rs/8*9
+    padding: 0 ($rs * 2)
+    font-size: 17px
     font-weight: 400
-    line-height: 1.5
-    color: #666
+    line-height: 1.6
+    color: var(--color-text-muted)
 
   nav
-    margin: 0 0 20px 0
+    margin: 0 0 28px
     text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    gap: 8px 4px
 
     a
-      margin-right: 10px
       text-decoration: none
-      color: #999
-      &:last-child
-        margin-right: 0
+      color: var(--color-nav-link)
+      font-size: 15px
+      padding: 6px 10px
+      border-radius: 6px
+      transition: color 0.15s ease, background-color 0.15s ease
       &:hover
-        color: #333
+        color: var(--color-text)
+        background-color: var(--color-bg-surface)
+
+// -----------------------------------------------
+// Main content area
+// -----------------------------------------------
 
 main
   display: block
-  max-width: $site-width
-  margin: auto
-  padding: 0 $rs*2
+  max-width: 740px
+  margin: 0 auto
+  padding: 0 ($rs * 2)
+  @media only screen and (max-width: 800px)
+    padding: 0 $rs
 
 #entries
-  max-width: $site-width
+  max-width: 740px
   margin: 0 auto
 
   article
-    border-bottom: 1px solid #f2f2f0
+    border-bottom: 1px solid var(--color-border-light)
     &:last-child
       border-bottom: 0
 
+// -----------------------------------------------
+// Article
+// -----------------------------------------------
+
 article
-  padding: 10px 0
+  padding: 28px 0
 
   header
     h1, h2
       letter-spacing: -0.02em
-      line-height: 1.1
-      font-size: 28px
-      color: #333332
-      margin-bottom: 16px
+      line-height: 1.2
+      font-size: 26px
+      color: var(--color-text)
+      margin: 0 0 8px
     h1
-      font-size: 35px
+      font-size: 32px
     a
       text-decoration: none
-      color: #333332
+      color: var(--color-text)
+      transition: color 0.15s ease
+      &:hover
+        color: var(--color-accent)
     time
-      color: #b3b3b1
-      letter-spacing: -0.02em
+      color: var(--color-text-muted)
       font-weight: 400
-      font-style: normal
       font-size: 14px
 
   section.post-content
     h3, h4, h5, h6
       letter-spacing: -0.02em
-      font-weight: 700
-      font-style: normal
-      font-size: 24px
+      font-weight: 600
+      font-size: 22px
       line-height: 1.3
-      margin: 0
-      margin-bottom: 4px
+      margin: 36px 0 8px
+      color: var(--color-text)
 
     h2, h1
       letter-spacing: -0.02em
       font-weight: 700
-      font-style: normal
-      font-size: 32px
+      font-size: 28px
       line-height: 1.2
-      padding-top: 31px
-      margin-bottom: 4px
+      margin: 44px 0 12px
+      color: var(--color-text)
 
     p
-      letter-spacing: -0.02em
-      font-style: normal
-      font-size: 20px
-      line-height: 1.3
-      color: #666665
+      font-size: 18px
+      line-height: 1.75
+      color: var(--color-text-secondary)
+      margin: 0 0 24px
 
     img
       max-width: 100%
       margin: 0 auto
+      border-radius: 4px
+      display: block
 
     .center-image
       margin: 0 auto
       display: block
 
     a
-      color: #333
+      color: var(--color-link)
       text-decoration: underline
+      text-underline-offset: 2px
+      text-decoration-color: var(--color-border)
+      transition: text-decoration-color 0.15s ease
+      &:hover
+        text-decoration-color: var(--color-text)
 
     figure
       margin: 0
@@ -206,186 +311,212 @@ article
     figcaption
       font-weight: 400
       font-style: italic
-      font-size: 16px
-      line-height: 1.3
-      color: #666665
-      outline: 0
-      z-index: 300
+      font-size: 14px
+      line-height: 1.5
+      color: var(--color-text-muted)
       text-align: center
+      margin-top: 8px
 
     hr
       border: 0
-      padding: 0
-      display: block
-      width: 15%
-      margin: 30px auto
-      border: 0px solid #ddd
-      border-top: 1px solid #ddd
+      width: 60px
+      margin: 44px auto
+      border-top: 2px solid var(--color-border)
 
     blockquote
       margin: 0 0 30px
-      margin-left: -26px
-      border-left: 3px solid #57ad68
+      margin-left: 0
+      border-left: 3px solid var(--color-blockquote-border)
       padding-left: 20px
 
       p
-        letter-spacing: 0.01rem
         font-weight: 400
         font-style: italic
-        mborder-left: 3px solid #57ad68
-        mpadding-left: 20px
-        mmargin-left: -26px
-        padding-bottom: 3px
+        color: var(--color-text-secondary)
 
     ul, ol
-      padding: 0 0 30px
+      padding: 0 0 24px
       margin: 0
 
     li
-      padding: 0
-      margin-left: 30px
-      margin-bottom: 5px
+      margin-left: 28px
+      margin-bottom: 8px
       padding-top: 2px
-      letter-spacing: -0.02em
-      font-weight: 300
-      font-style: normal
-      font-size: 20px
-      line-height: 1.3
-      color: #666665
+      font-size: 18px
+      line-height: 1.7
+      color: var(--color-text-secondary)
 
       p
-        padding: 0 0 golden-ratio(1rem,  1)
+        padding: 0 0 1.618rem
 
     ol li
       list-style-type: decimal
 
   .post-author
-    padding-top: 50px
+    padding-top: 44px
 
     span
       display: block
-      border-top: 1px solid #dededc
+      border-top: 1px solid var(--color-border)
       margin: 0
-      padding: 16px 0
-      color: #b3b3b1
-      font-size: $rs/8*6
+      padding: 16px 0 8px
+      color: var(--color-text-muted)
+      font-size: 11px
       text-transform: uppercase
-      letter-spacing: 1px
-      font-weight: bold
+      letter-spacing: 1.5px
+      font-weight: 600
 
     h4
-      font-size: 18px
-      line-height: 1.1
+      font-size: 16px
+      line-height: 1.2
       font-weight: 700
       padding: 0
       margin: 0
+      color: var(--color-text)
+
+// -----------------------------------------------
+// Share buttons
+// -----------------------------------------------
 
 .share
   text-align: right
   padding: 20px 0 0
   a
     text-decoration: none
-    color: #bbb
-    padding-left: 12px
+    color: var(--color-share)
+    padding-left: 14px
+    font-size: 18px
+    transition: color 0.15s ease
     .hidden
       display: none
     &:hover
-      color: #333
+      color: var(--color-text)
+
+// -----------------------------------------------
+// Back to home button
+// -----------------------------------------------
 
 .back-beginning
-  padding: 60px 0 30px
+  padding: 52px 0 36px
   text-align: center
-  margin: 0 auto
 
   .btn
     display: inline-block
     text-align: center
-    letter-spacing: -0.02em
-    font-size: 15px
-    font-weight: 400
-    font-style: normal
+    font-size: 14px
+    font-weight: 500
     text-decoration: none
-    height: 44px
-    background: #57ad68
+    height: 40px
+    background: var(--color-accent)
     color: #fff
-    vertical-align: middle
-    box-sizing: border-box
     border-radius: 999em
-    line-height: 44px
-    padding: 0 18px
+    line-height: 40px
+    padding: 0 22px
+    transition: background 0.15s ease, transform 0.1s ease
+    &:hover
+      background: var(--color-accent-hover)
+      transform: translateY(-1px)
+
+// -----------------------------------------------
+// Pagination
+// -----------------------------------------------
 
 .pagination
   text-align: center
-  padding: $rs*3 0 0
-  font-size: $rs/4*3
+  padding: ($rs * 3) 0 0
+  font-size: 14px
+  color: var(--color-text-muted)
   a
-    color: #999
+    color: var(--color-nav-link)
     text-decoration: none
+    padding: 6px 10px
+    border-radius: 6px
+    transition: color 0.15s ease, background-color 0.15s ease
     &:hover
-      color: #333
+      color: var(--color-text)
+      background-color: var(--color-bg-surface)
+
+// -----------------------------------------------
+// Tables
+// -----------------------------------------------
 
 table
-  border: 1px solid #e8e8e8
+  border: 1px solid var(--color-table-border)
   border-collapse: separate
-  border-radius: 0.25rem
+  border-radius: 8px
   border-spacing: 0
-  box-shadow: none
-  margin: 1.5rem 0
+  margin: 24px 0
   text-align: left
-  max-width: 600px
+  max-width: 100%
   width: 100%
   overflow: hidden
-  clear: both
-  margin: 15px 0
 
   tr
     th, td
-      padding: 1rem 1rem 1rem 0
-      color: #757575
+      padding: 10px 16px
+      color: var(--color-table-cell)
 
     th:first-child, td:first-child
-      padding-left: 1rem
+      padding-left: 16px
 
     th
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+      border-bottom: 1px solid var(--color-table-border)
       text-align: left
       text-transform: uppercase
+      font-size: 11px
+      letter-spacing: 0.06em
+      font-weight: 600
+      background-color: var(--color-table-header-bg)
 
     td
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05)
-      color: #757575
-      font-size: 0.875rem
-      padding: 1rem 1rem 1rem 0
+      border-bottom: 1px solid var(--color-border-light)
+      font-size: 14px
+
+    &:last-child td
+      border-bottom: 0
+
+// -----------------------------------------------
+// Code blocks
+// -----------------------------------------------
 
 pre,
 code
-  font-size: 15px
-  border: 1px solid #e8e8e8
-  border-radius: 3px
-  background-color: #eef
+  font-family: var(--font-mono)
+  font-size: 14px
+  border: 1px solid var(--color-code-border)
+  border-radius: 6px
+  background-color: var(--color-code-bg)
 
 code
-  padding: 1px 5px
+  padding: 2px 6px
+  font-size: 85%
 
 pre
-  padding: 8px 12px
-  overflow-x: scroll
+  padding: 16px
+  overflow-x: auto
   > code
     border: 0
-    padding-right: 0
-    padding-left: 0
+    padding: 0
+    font-size: inherit
+    background: transparent
+
+// -----------------------------------------------
+// Footer
+// -----------------------------------------------
 
 footer.site-footer
   margin: 0 auto
-  padding: $rs*3 0
+  padding: ($rs * 3) 0
   width: 100%
-  max-width: $site-width
-  font-size: $rs/4*3
+  max-width: 740px
+  font-size: 14px
   text-align: center
-  color: #999
-  line-height: $rs*1.1
+  color: var(--color-text-muted)
+  line-height: 1.6
+  border-top: 1px solid var(--color-border-light)
   a
-    color: #666
+    color: var(--color-nav-link)
     text-decoration: none
+    transition: color 0.15s ease
     &:hover
-      color: #333
+      color: var(--color-text)

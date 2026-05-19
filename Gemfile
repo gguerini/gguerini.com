@@ -1,6 +1,6 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
-gem 'jekyll'
+gem 'jekyll', '~> 4.3'
 gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
+gem 'webrick' # required for Ruby 3.x
