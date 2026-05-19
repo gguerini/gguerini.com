@@ -16,7 +16,9 @@ permalink: /:year/:month/:title
 
 url: "https://gguerini.com"
 baseurl: ""
-google_analytics: "UA-1545602-5"
+
+# Set to your GA4 measurement ID (e.g. "G-XXXXXXXXXX") to enable analytics
+# google_analytics: ""
 
 # social icons and sharing options
 social:
